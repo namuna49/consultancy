@@ -7,7 +7,7 @@ import MileStone from "@/components/PageComponents/HomeSection/MileStone";
 import NewsAndUpdate from "@/components/PageComponents/HomeSection/NewsAndUpdate";
 import OurServices from "@/components/PageComponents/HomeSection/OurServices";
 import Testimonials from "@/components/PageComponents/HomeSection/Testimonials";
-import WhereToGo from "@/components/PageComponents/HomeSection/WhereToGo";
+ import WhereToGo from "@/components/PageComponents/HomeSection/WhereToGo";
 import Image from "next/image";
 
 export default function Home() {

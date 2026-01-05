@@ -27,7 +27,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-20 lg:py-24">
+    <section className="bg-linear-to-br from-gray-50 to-blue-50 px-4 py-20 lg:py-24">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">

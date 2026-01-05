@@ -66,7 +66,7 @@ const VisitOurOffice = () => {
         {!isChatOpen ? (
           <button
             onClick={() => setIsChatOpen(true)}
-            className="bg-gradient-to-r from-[#004b7c] to-[#0077b6] text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
+            className="bg-white text-black p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
           >
             <FaComment className="text-xl" />
             <span className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">

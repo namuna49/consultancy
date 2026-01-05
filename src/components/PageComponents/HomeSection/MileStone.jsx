@@ -58,16 +58,16 @@ const MileStone = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-20 px-4 bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden"
+      className="relative py-16 md:py-20 px-4 overflow-hidden bg-white"
     >
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -left-16 w-40 h-40 bg-blue-200/20 blur-[70px] rounded-full animate-float-slow"></div>
-        <div className="absolute bottom-0 right-0 w-48 h-48 bg-cyan-200/20 blur-[80px] rounded-full animate-float-slower"></div>
+        <div className="absolute -top-10 -left-16 w-40 h-40 blur-[70px] rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-0 right-0 w-48 h-48 blur-[80px] rounded-full animate-float-slower"></div>
 
         {/* Additional floating elements */}
-        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-purple-200/15 blur-[60px] rounded-full animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-28 h-28 bg-teal-200/10 blur-[50px] rounded-full animate-bounce-slow"></div>
+        <div className="absolute top-1/3 right-1/4 w-32 h-32 blur-[60px] rounded-full animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-28 h-28 blur-[50px] rounded-full animate-bounce-slow"></div>
 
         {/* Animated grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]">

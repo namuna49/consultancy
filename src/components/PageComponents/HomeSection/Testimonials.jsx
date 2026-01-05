@@ -40,11 +40,20 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Sweta Kharel",
+    name: "Mamata lohohani",
     country: "Australia",
     flag: "/australiaaflag.png",
     feedback:
       "The guidance I received was exceptional. They helped me secure admission to my dream university with scholarship!",
+    image: "/mamata.png",
+  },
+  {
+    id: 5,
+    name: "Sweta kharel",
+    country: "UK",
+    flag: "/ukflag.png",
+    feedback:
+      "Their expertise in visa processing and IELTS coaching was invaluable. I felt supported every step of the way.",
     image: "/sweta.png",
   },
 ];
@@ -84,7 +93,7 @@ const Testimonials = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="py-14 bg-gradient-to-br from-blue-50 to-cyan-50 px-4">
+    <section className="relative py-16 md:py-20 px-4 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center m">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

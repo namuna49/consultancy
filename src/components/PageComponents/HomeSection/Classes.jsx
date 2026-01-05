@@ -63,9 +63,9 @@ const Classes = () => {
   };
 
   return (
-    <section className="relative py-16 px-6 bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden">
-      <div className="absolute -top-10 left-0 w-72 h-72 bg-blue-300/30 blur-[90px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-400/20 blur-[110px] rounded-full"></div>
+    <section className="relative py-16 px-6 overflow-hidden bg-white">
+      <div className="absolute -top-10 left-0 w-72 h-72  blur-[90px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80  blur-[110px] rounded-full"></div>
 
       <div className="relative z-10 container mx-auto text-center">
         {/* Header - 60% */}
@@ -129,7 +129,7 @@ const Classes = () => {
 
         <button
           onClick={toggleVisible}
-          className="bg-gradient-to-r from-[#0066A6] to-[#0099CC] text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 mt-4 text-sm"
+          className="bg-linear-to-r from-[#0066A6] to-[#0099CC] text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 mt-4 text-sm"
         >
           {visibleCount === classes.length ? "Show Less" : "View More"}
         </button>

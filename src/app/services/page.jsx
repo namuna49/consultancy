@@ -1,7 +1,6 @@
 import OurServices from "@/components/PageComponents/HomeSection/OurServices";
 import ServiceBanner from "@/components/PageComponents/ServiceSection/ServiceBanner";
 import ServicesFAQ from "@/components/PageComponents/ServiceSection/ServicesFAQ";
-import ServicesCTA from "@/components/PageComponents/ServiceSection/ServicessCTA";
 import ServicesSteps from "@/components/PageComponents/ServiceSection/ServicesSteps";
 import React from "react";
 
@@ -11,7 +10,6 @@ const page = () => {
       <ServiceBanner />
       <OurServices />
       <ServicesSteps />
-      <ServicesCTA />
     </div>
   );
 };

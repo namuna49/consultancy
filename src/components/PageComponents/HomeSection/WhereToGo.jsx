@@ -56,7 +56,7 @@ const WhereToGo = () => {
     <section
       id="where"
       ref={sectionRef}
-      className="relative py-16 md:py-20 bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden"
+      className="relative py-16 md:py-20 px-4 overflow-hidden bg-white"
     >
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-10 -right-10 w-60 h-60 bg-blue-200/20 blur-[80px] rounded-full animate-float-slow"></div>
@@ -195,7 +195,7 @@ const WhereToGo = () => {
 
         {/* Bottom Stats */}
         <div
-          className={`mt-12 pt-8 border-t border-gray-200/50 transition-all duration-700 delay-1200 ${
+          className={`mt-8 pt-8 border-t border-gray-200/50 transition-all duration-700 delay-1200 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >

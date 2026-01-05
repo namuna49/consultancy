@@ -87,7 +87,7 @@ function Banner() {
       >
         {/* Title */}
         <div className="overflow-hidden">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-white leading-tight animate-slide-up">
+          <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 text-white leading-snug animate-slide-up">
             <span className="inline-block animate-gradient-text bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent bg-[length:200%_auto]">
               Your Trusted Consultancy Partner
             </span>
@@ -103,13 +103,13 @@ function Banner() {
         </div>
 
         {/* Button */}
-        <div className="overflow-hidden">
+        <div className="overflow-hidden mt-6">
           <Link
             href="#where"
-            className="inline-block bg-gradient-to-r from-[#0066A6] to-[#0099CC] hover:from-[#005799] hover:to-[#0077AA] text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 animate-slide-up delay-400 group relative overflow-hidden"
+            className="inline-block bg-linear-to-r from-[#0066A6] to-[#0099CC] hover:from-[#005799] hover:to-[#0077AA] text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 animate-slide-up delay-400 group relative overflow-hidden"
           >
-            <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
-            <span className="relative flex items-center justify-center">
+            <span className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
+            <span className="relative flex items-center justify-center ">
               Get Started
               <svg
                 className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -128,12 +128,12 @@ function Banner() {
           </Link>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-scroll"></div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Animated Border Gradient */}

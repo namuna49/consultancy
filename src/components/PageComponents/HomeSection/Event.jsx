@@ -35,7 +35,7 @@ const events = [
 
 const Event = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/20 px-4">
+    <section className="py-20 bg-white px-4">
       <div className="container mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-extrabold text-blue-900 mb-4">
           Upcoming Events

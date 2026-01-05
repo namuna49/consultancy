@@ -42,17 +42,10 @@ const AboutBanner = () => {
             Our Services
           </a>
         </div>
-
-        {/* Smooth Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center items-start overflow-hidden">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-scrollHint"></div>
-          </div>
-        </div>
       </div>
 
       {/* Decorative bottom fade */}
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/30 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-linear-to-t from-black/30 to-transparent"></div>
     </section>
   );
 };

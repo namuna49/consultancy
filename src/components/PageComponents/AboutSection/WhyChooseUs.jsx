@@ -45,7 +45,7 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="relative py-16 px-6 bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden">
+    <section className="relative py-16 px-6  overflow-hidden bg-white">
       {/* Subtle Background Lights */}
       <div className="absolute top-0 left-10 w-48 h-48 bg-blue-200/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-10 w-64 h-64 bg-cyan-200/20 rounded-full blur-3xl"></div>

@@ -17,7 +17,7 @@ const NewsletterSignup = () => {
     setEmail("");
   };
   return (
-    <section className="py-16 px-6 bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-100 border-t border-gray-200">
+    <section className="py-16 px-6 bg-white ">
       <div className="container mx-auto text-center max-w-2xl">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

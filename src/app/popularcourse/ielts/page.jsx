@@ -1,262 +1,495 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  BookOpen,
+  Users,
+  Clock,
+  Target,
+  Award,
+  TrendingUp,
+  CheckCircle,
+  Star,
+  Calendar,
+  MessageCircle,
+  ArrowRight,
+  BarChart,
+  GraduationCap,
+  FileText,
+  ChevronLeft,
+  ChevronRight,
+  Mic,
+} from "lucide-react";
 
-// ---------- Course Highlights ----------
-const CourseHighlights = ({ highlights }) => (
-  <motion.div
-    className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-16 px-4"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={{
-      visible: { transition: { staggerChildren: 0.2 } },
-    }}
-  >
-    {highlights.map((item, idx) => (
-      <motion.div
-        key={idx}
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-        }}
-        whileHover={{ scale: 1.05 }}
-        className="bg-white rounded-2xl p-8 shadow-lg border hover:shadow-2xl transition-all duration-300 cursor-pointer"
-      >
-        <motion.div
-          whileHover={{ y: -5, scale: 1.1 }}
-          animate={{ y: [0, -3, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="flex items-center justify-center mb-4"
-        >
-          <Image
-            src={item.icon || "/highlight.png"}
-            alt={item.title}
-            width={50}
-            height={50}
-          />
-        </motion.div>
-        <h3 className="text-2xl font-semibold text-blue-700 mb-3">
-          {item.title}
-        </h3>
-        <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-      </motion.div>
-    ))}
-  </motion.div>
-);
-
-// ---------- Intro Section ----------
-const IntroSection = () => (
-  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 my-16 px-4 relative">
-    {/* Floating Background Circles */}
-    <motion.div
-      className="absolute -top-10 -left-10 w-64 h-64 bg-cyan-300/20 blur-[80px] rounded-full"
-      animate={{ y: [0, 20, 0] }}
-      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <motion.div
-      className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400/10 blur-[100px] rounded-full"
-      animate={{ y: [0, -20, 0] }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-    />
-
-    {/* Left Content */}
-    <motion.div
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      className="lg:w-1/2 relative z-10"
-    >
-      <h2 className="text-4xl sm:text-5xl font-bold text-blue-900 leading-tight mb-6">
-        Prepare for IELTS with{" "}
-        <span className="text-red-600">Top Instructors</span>
-      </h2>
-
-      <p className="text-gray-700 mb-4 leading-relaxed text-lg">
-        Achieve your dream score with our comprehensive IELTS training. We focus
-        on all four components — Listening, Reading, Writing, and Speaking —
-        using real exam patterns, personalized coaching, and proven strategies.
-      </p>
-
-      <p className="text-gray-700 text-lg leading-relaxed mb-6">
-        Our expert mentors have years of experience guiding students to success
-        in the USA, UK, Australia, Canada, and other countries.
-      </p>
-
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        animate={{ y: [0, -4, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300"
-      >
-        Contact Us
-      </motion.button>
-    </motion.div>
-
-    {/* Right Image */}
-    <motion.div
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      className="lg:w-1/2 w-full h-80 sm:h-[420px] relative z-10"
-    >
-      <Image
-        src="/ielts.png"
-        alt="IELTS Preparation"
-        fill
-        className="rounded-3xl object-cover shadow-xl border"
-      />
-    </motion.div>
-  </div>
-);
-
-// ---------- Why Choose Us ----------
-const WhyChooseUs = () => {
-  const reasons = [
-    "Proven success in top international exams",
-    "Small batch sizes for personalized attention",
-    "Experienced and certified instructors",
-    "Flexible schedules to suit your routine",
-  ];
-
+const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-blue-50 py-16 relative">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl font-bold text-center text-blue-900 mb-10"
-      >
-        Why Choose Us?
-      </motion.h2>
-
-      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-        {reasons.map((reason, idx) => (
+    <div className="bg-white text-blue-900 py-20">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
           <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.2 }}
-            className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition-all duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <p className="text-gray-700 font-medium">{reason}</p>
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Achieve Your IELTS Goals
+            </h1>
+
+            <p className="text-xl text-blue-900 mb-8 leading-relaxed">
+              Expert coaching, personalized attention, and proven strategies.
+              Join 700+ successful students who achieved their dream scores for
+              studying abroad.
+            </p>
+
+            <div className="flex flex-wrap gap-4 mb-10">
+              <button className="px-8 py-4 bg-purple-200 text-blue-900 font-bold rounded-lg hover:bg-purple-300 transition-all duration-300 flex items-center gap-2">
+                Start Learning
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button className="px-8 py-4 bg-purple-200 border-2 border-white text-blue-900 font-bold rounded-lg hover:bg-purple-300 hover:text-blue-900 transition-all duration-300">
+                Download Syllabus
+              </button>
+            </div>
+
+            {/* Quick Info */}
+            <div className="grid grid-cols-3 gap-6">
+              <div>
+                <div className="text-3xl font-bold text-blue-900">8.0+</div>
+                <div className="text-sm text-purple-500">Average Band</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-900">700+</div>
+                <div className="text-sm text-purple-500">Students</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-900">97%</div>
+                <div className="text-sm text-purple-500">Success Rate</div>
+              </div>
+            </div>
           </motion.div>
-        ))}
+
+          {/* Right Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="relative">
+              <img
+                src="/ieltss.png"
+                alt="IELTS Training"
+                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-const SuccessStories = () => {
-  const stories = [
+// ---------- Course Features ----------
+const CourseFeatures = () => {
+  const [activeTab, setActiveTab] = useState("overview");
+
+  const tabs = [
+    { id: "overview", label: "Overview" },
+    { id: "curriculum", label: "Curriculum" },
+    { id: "schedule", label: "Schedule" },
+  ];
+
+  const content = {
+    overview: [
+      "Certified IELTS instructors with proven track records",
+      "Small batch sizes for personalized attention and feedback",
+      "Comprehensive study materials and official practice tests",
+      "Daily speaking practice sessions with expert trainers",
+    ],
+    curriculum: [
+      "Listening Module - 20+ hours with real exam practice",
+      "Reading Module - 20+ hours with strategy techniques",
+      "Writing Module - 25+ hours with Task 1 & 2 mastery",
+      "Speaking Module - 30+ hours with fluency training",
+    ],
+    schedule: [
+      "Morning Batch:  6:00 AM - 8:00 AM (Mon-Fri)",
+      "Afternoon Batch: 2:00 PM - 4:00 PM (Mon-Fri)",
+      "Evening Batch:  6:00 PM - 8:00 PM (Mon-Fri)",
+      "Weekend Batch: 9:00 AM - 12:00 PM (Sat-Sun)",
+    ],
+  };
+
+  return (
+    <div className="py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold text-blue-900 mb-4">
+            Course Details
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Everything you need to know about our IELTS program
+          </p>
+        </motion.div>
+
+        {/* Tabs */}
+        <div className="flex justify-center gap-4 mb-10">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-8 py-3 font-semibold rounded-lg transition-all ${
+                activeTab === tab.id
+                  ? "bg-blue-900 text-white"
+                  : "bg-white text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Content */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="bg-white rounded-2xl p-10 shadow-lg"
+        >
+          <ul className="space-y-5">
+            {content[activeTab].map((item, idx) => (
+              <li key={idx} className="flex items-start gap-4">
+                <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                <span className="text-gray-700 text-lg">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// ---------- Why Choose Us with Swipeable Cards ----------
+const WhyChooseUs = ({ highlights }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const icons = [GraduationCap, Clock, BarChart, Mic, FileText, Award];
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+    }),
+  };
+
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  const paginate = (newDirection) => {
+    setDirection(newDirection);
+    setCurrentIndex((prevIndex) => {
+      let nextIndex = prevIndex + newDirection;
+      if (nextIndex < 0) nextIndex = highlights.length - 1;
+      if (nextIndex >= highlights.length) nextIndex = 0;
+      return nextIndex;
+    });
+  };
+
+  return (
+    <div className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold text-blue-900 mb-4">
+            Why Choose Our IELTS Program?
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Comprehensive training for all four IELTS modules
+          </p>
+        </motion.div>
+
+        {/* Swipeable Card Container */}
+        <div className="relative h-[400px] flex items-center justify-center">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+              }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+
+                if (swipe < -swipeConfidenceThreshold) {
+                  paginate(1);
+                } else if (swipe > swipeConfidenceThreshold) {
+                  paginate(-1);
+                }
+              }}
+              className="absolute w-full"
+            >
+              <div className="bg-white border-2 border-gray-200 rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-all cursor-grab active:cursor-grabbing">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-20 h-20 bg-blue-900 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                    {React.createElement(icons[currentIndex], {
+                      className: "w-10 h-10 text-white",
+                    })}
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-blue-900 mb-4">
+                    {highlights[currentIndex].title}
+                  </h3>
+
+                  <p className="text-gray-600 text-lg leading-relaxed max-w-2xl">
+                    {highlights[currentIndex].desc}
+                  </p>
+
+                  {/* Card Counter */}
+                  <div className="mt-8 text-sm text-gray-500 font-semibold">
+                    {currentIndex + 1} / {highlights.length}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={() => paginate(-1)}
+            className="absolute left-0 z-10 p-3 bg-blue-900 text-white rounded-full shadow-lg hover:bg-blue-800 transition-all hover:scale-110"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={() => paginate(1)}
+            className="absolute right-0 z-10 p-3 bg-blue-900 text-white rounded-full shadow-lg hover:bg-blue-800 transition-all hover:scale-110"
+            aria-label="Next"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Dot Indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {highlights.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                setDirection(idx > currentIndex ? 1 : -1);
+                setCurrentIndex(idx);
+              }}
+              className={`transition-all duration-300 rounded-full ${
+                idx === currentIndex
+                  ? "w-8 h-3 bg-blue-900"
+                  : "w-3 h-3 bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Swipe Hint */}
+        <div className="text-center mt-6 text-sm text-gray-500">
+          👆 Swipe or use arrows to navigate
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ---------- Stats Section ----------
+const StatsSection = () => {
+  const stats = [
+    { number: "97%", label: "Success Rate", icon: TrendingUp },
+    { number: "700+", label: "Students Trained", icon: Users },
+    { number: "8.0+", label: "Average Band", icon: Target },
+    { number: "100%", label: "Visa Success", icon: Award },
+  ];
+
+  return (
+    <div className="bg-blue-900 text-white py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="text-center"
+            >
+              <stat.icon className="w-10 h-10 mx-auto mb-3 text-yellow-500" />
+              <div className="text-4xl font-bold text-yellow-500 mb-2">
+                {stat.number}
+              </div>
+              <div className="text-blue-200">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ---------- Testimonials ----------
+const Testimonials = () => {
+  const testimonials = [
     {
       name: "Sadikshya Gyawali",
-      country: "UK",
       score: "8.5",
-      img: "/student1.jpg",
+      image: "https://randomuser.me/api/portraits/women/44.jpg",
+      text: "The speaking practice sessions really helped me gain confidence.  Highly recommend!",
+      school: "UK - Student Visa",
     },
     {
       name: "Namuna Acharya",
-      country: "USA",
       score: "8.0",
-      img: "/student2.jpg",
+      image: "https://randomuser.me/api/portraits/women/68.jpg",
+      text: "Excellent writing feedback and strategies. Got the score I needed for my university! ",
+      school: "USA - Masters",
+    },
+    {
+      name: "Rahul Sharma",
+      score: "7.5",
+      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      text: "The mock tests helped me understand the exam pattern perfectly. Great program!",
+      school: "Canada - PR",
     },
   ];
 
   return (
-    <section className="py-16 px-4 bg-white">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl font-bold text-center text-blue-900 mb-10"
-      >
-        Success Stories
-      </motion.h2>
+    <div className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-blue-900 mb-4">
+            Student Success Stories
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Read what our students have to say
+          </p>
+        </motion.div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-        {stories.map((story, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.3 }}
-            className="flex flex-col items-center text-center bg-blue-50 p-6 rounded-2xl shadow hover:shadow-xl transition-all duration-300"
-          >
-            <Image
-              src={story.img}
-              alt={story.name}
-              width={100}
-              height={100}
-              className="rounded-full mb-4 shadow-md"
-            />
-            <h3 className="text-xl font-semibold text-blue-700">
-              {story.name}
-            </h3>
-            <p className="text-gray-600">
-              {story.country} | IELTS Score: {story.score}
-            </p>
-          </motion.div>
-        ))}
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.2 }}
+              className="bg-white rounded-xl p-8 shadow-lg"
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-14 h-14 rounded-full object-cover"
+                />
+                <div>
+                  <div className="font-bold text-blue-900">{item.name}</div>
+                  <div className="text-sm text-gray-600">
+                    Band: {item.score}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 text-yellow-500 fill-yellow-500"
+                  />
+                ))}
+              </div>
+
+              <p className="text-gray-600 mb-4 italic">"{item.text}"</p>
+
+              <div className="text-sm font-semibold text-blue-600">
+                {item.school}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-// ---------- IELTS Page ----------
+// ---------- Main Component ----------
 const IELTS = () => {
   const highlights = [
     {
-      title: "Expert Trainers",
+      title: "Expert IELTS Trainers",
       desc: "Learn from certified IELTS instructors with years of experience and excellent results.",
-      icon: "/ielts.png",
     },
     {
       title: "Flexible Schedules",
       desc: "Choose from morning, afternoon, evening, or weekend classes according to your routine.",
-      icon: "/ielts.png",
     },
     {
       title: "Regular Mock Tests",
       desc: "Practice with exam-style mock tests to track improvement and boost confidence.",
-      icon: "/ielts.png",
+    },
+    {
+      title: "Daily Speaking Practice",
+      desc: "Daily speaking sessions with trainers to enhance fluency, pronunciation, and confidence.",
+    },
+    {
+      title: "Premium Study Materials",
+      desc: "Access high-quality notes, practice sheets, and curated learning resources.",
     },
     {
       title: "Personalized Feedback",
       desc: "Get detailed guidance and error correction for writing and speaking modules.",
-      icon: "/ielts.png",
-    },
-    {
-      title: "Study Materials",
-      desc: "Access premium notes, practice sheets, and curated learning resources.",
-      icon: "/ielts.png",
-    },
-    {
-      title: "Speaking Practice",
-      desc: "Daily speaking sessions with trainers to enhance fluency and pronunciation.",
-      icon: "/ielts.png",
     },
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white px-10">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-5xl sm:text-6xl font-bold text-center text-blue-900 py-16"
-      >
-        IELTS Preparation Course
-      </motion.h1>
-
-      <IntroSection />
-      <CourseHighlights highlights={highlights} />
-      <WhyChooseUs />
-      <SuccessStories />
+    <div className="bg-white">
+      <HeroSection />
+      <StatsSection />
+      <CourseFeatures />
+      <WhyChooseUs highlights={highlights} />
+      <Testimonials />
     </div>
   );
 };

@@ -35,7 +35,7 @@ function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3 group">
           <Image
-            src="/logo1.png"
+            src="/logo5.png"
             alt="Next Consultancy Logo"
             width={64}
             height={64}

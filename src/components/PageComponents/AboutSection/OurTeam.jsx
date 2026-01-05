@@ -36,7 +36,7 @@ const teamMembers = [
 
 const OurTeam = () => {
   return (
-    <section className="py-12 bg-gray-50 px-6">
+    <section className="py-12 bg-white px-6">
       <div className="container mx-auto text-center mb-8">
         <h2 className="text-2xl md:text-4xl font-extrabold text-[#0066A6]">
           Meet Our Experts

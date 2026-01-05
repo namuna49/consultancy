@@ -94,7 +94,7 @@ const BlogCatelogs = () => {
   });
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -198,7 +198,7 @@ const BlogCatelogs = () => {
 
                   <Link
                     href={`/blog/${blog.slug}`}
-                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300 group/link"
+                    className="inline-flex items-center gap-2 text-blue-900 font-semibold hover:text-blue-800 transition-colors duration-300 group/link"
                   >
                     Read More
                     <FaArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
@@ -242,7 +242,7 @@ const BlogCatelogs = () => {
                 setSearchTerm("");
                 setSelectedCategory("All");
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300"
+              className="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300"
             >
               View All Articles
             </button>

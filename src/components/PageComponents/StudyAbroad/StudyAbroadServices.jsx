@@ -29,29 +29,64 @@ const services = [
 
 const StudyAbroadServices = () => {
   return (
-    <section className="py-20 bg-gray-50 px-4">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-[#0066A6] mb-8">
-          Our Study Abroad Support Services
+    <section
+      className="
+        relative 
+        py-20 
+        px-4 
+        bg-white 
+        text-gray-900 
+        overflow-hidden
+      "
+    >
+      {/* Soft background gradient (SAFE) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white to-blue-50 pointer-events-none" />
+
+      <div className="relative container mx-auto text-center">
+        {/* Heading */}
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+          <span className="bg-gradient-to-r from-[#0066A6] to-[#0099CC] bg-clip-text text-transparent">
+            Our Study Abroad Support Services
+          </span>
         </h2>
-        <p className="text-gray-600 text-base md:text-lg mb-8 max-w-3xl mx-auto">
+
+        {/* Description */}
+        <p className="text-gray-600 text-base md:text-lg mb-12 max-w-3xl mx-auto">
           We provide end-to-end support to help you prepare, apply, and succeed
           in studying abroad.
         </p>
 
+        {/* Services */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+              className="
+                bg-white 
+                border 
+                border-gray-200 
+                p-6 
+                rounded-xl 
+                shadow-md 
+                hover:shadow-xl 
+                hover:-translate-y-1 
+                transition-all 
+                duration-300
+              "
             >
               <div className="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-lg">
+                <span className="text-[#0066A6] font-bold text-lg">
                   {service.title.charAt(0)}
                 </span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                {service.title}
+              </h3>
+
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
