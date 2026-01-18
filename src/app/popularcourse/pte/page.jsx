@@ -28,6 +28,10 @@ const HeroSection = () => {
     <div className="bg-white text-blue-900 py-20">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+<<<<<<< HEAD
+=======
+          {/* Left Content */}
+>>>>>>> 3026daea849cb55620d43e48a7ee2b81528e6209
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,6 +74,10 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
+<<<<<<< HEAD
+=======
+          {/* Right Image */}
+>>>>>>> 3026daea849cb55620d43e48a7ee2b81528e6209
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
